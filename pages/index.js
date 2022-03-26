@@ -62,7 +62,7 @@ const Home = (props) => {
   return (
     <div className="home_page">
       <Head>
-        <title>Home Page</title>
+        <title>{process.env.WEBSITE_NAME} | Home</title>
       </Head>
 
       <Filter state={state} />

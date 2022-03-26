@@ -323,3 +323,80 @@ footer a:hover {
   margin-left: 0;
   margin-right: 1rem;
 }
+
+/* LOADING */
+._loading {
+  background: var(--main-color-100-transparent);
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+/* LANDING */
+._landing {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-color-50);
+  z-index: 7;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+._landing aside {
+  width: 20vw;
+  height: 100vh;
+}
+._landing main {
+  padding: 2rem;
+  z-index: 8;
+  color: white;
+  max-width: 450px;
+  text-align: center;
+}
+
+._bglg,
+._bgsm {
+  display: none;
+}
+._bgm {
+  display: block;
+}
+
+@media screen and (min-width: 1200px) {
+  ._bglg {
+    display: block;
+  }
+  ._bgm,
+  ._bgsm {
+    display: none;
+  }
+  ._landing main {
+    padding: 2rem;
+    max-width: 620px;
+  }
+}
+@media screen and (max-width: 740px) {
+  ._bgsm {
+    display: block;
+  }
+  ._bgm,
+  ._bglg {
+    display: none;
+  }
+  ._landing main {
+    padding: 2rem;
+    max-width: 250px;
+  }
+}
+
+._logo {
+  max-width: 500px !important;
+  margin: 0 auto;
+}
