@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { rgbDataURL } from "../utils/blurData";
 
 export default function LandingLayout({ children }) {
   return (
@@ -11,6 +12,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="left top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
       <aside className="_bgm">
@@ -21,6 +24,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="left top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
       <aside className="_bgsm">
@@ -31,6 +36,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="left top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
       {children}
@@ -42,6 +49,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="right top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
       <aside className="_bgm">
@@ -52,6 +61,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="right top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
       <aside className="_bgsm">
@@ -62,6 +73,8 @@ export default function LandingLayout({ children }) {
           objectFit="contain"
           objectPosition="right top"
           quality={100}
+          placeholder="blur"
+          blurDataURL={rgbDataURL()}
         />
       </aside>
     </>

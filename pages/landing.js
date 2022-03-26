@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-
 import LandingLayout from "../components/LandingLayout";
 import logo from "../public/logo.png";
+import { rgbDataURL } from "../utils/blurData";
 
 export default function landing() {
   return (
@@ -19,6 +19,8 @@ export default function landing() {
               alt="logo miu shop"
               src={logo}
               layout="responsive"
+              placeholder="blur"
+              blurDataURL={rgbDataURL()}
             />
           </div>
           <h1>WELCOME TO THE MIU SHOP!</h1>
