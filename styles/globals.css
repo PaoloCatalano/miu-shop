@@ -18,8 +18,8 @@
   --gray-90: #242e30;
   --gray-100: #090c0c;
 
-  --red-transparent: #ed143dc2;
-  --red: #ed143d;
+  --red-transparent: #ff0055c4;
+  --red: #ff0055;
   --red-danger: #dc3545;
 
   --borderRadius: 0.25rem;
@@ -132,9 +132,7 @@ button:focus {
     height: 100%;
   }
 }
-._main-color-light {
-  color: var(--main-color-10);
-}
+
 ._color-red {
   color: var(--red);
 }
@@ -399,4 +397,9 @@ footer a:hover {
 ._logo {
   max-width: 500px !important;
   margin: 0 auto;
+}
+
+._image-container {
+  display: grid;
+  place-items: center;
 }

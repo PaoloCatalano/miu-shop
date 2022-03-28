@@ -138,7 +138,7 @@ const Cart = () => {
         <Link href="/">
           <button
             type="button"
-            className="btn btn-success w-100 text-uppercase"
+            className="btn btn-warning w-100 text-uppercase"
           >
             <a> enjoy shopping </a>
           </button>

@@ -21,6 +21,7 @@ export default function landing() {
               layout="responsive"
               placeholder="blur"
               blurDataURL={rgbDataURL()}
+              quality={100}
             />
           </div>
           <h1>WELCOME TO THE MIU SHOP!</h1>

@@ -83,17 +83,38 @@ function NavBar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark _bg-color _navbar">
+      <style jsx>{`
+        a {
+          display: inline-flex;
+        }
+        ._dash {
+          color: var(--red);
+        }
+        button {
+          width: 40px;
+        }
+        .__shop-icon {
+          color: var(--main-color-10);
+          margin-right: 5px;
+          margin-top: -5px;
+        }
+        .__μ {
+          font-size: 32px;
+          margin-top: -14px;
+        }
+      `}</style>
       <Link href="/">
         <a className="navbar-brand">
-          <span className="_main-color-light">
+          <div className="__shop-icon">
             <BsShopWindow />{" "}
-          </span>
-          μ-Shop
+          </div>
+          <div className="__μ">μ</div>
+          <span className="_dash">-</span>Shop
         </a>
       </Link>
       <button
         className="navbar-toggler rounded-circle"
-        style={{ width: 40 }}
+        // style={{ width: 40 }}
         type="button"
         data-toggle="collapse"
         data-target="#navbarNavDropdown"
