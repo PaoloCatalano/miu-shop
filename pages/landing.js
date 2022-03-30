@@ -15,13 +15,14 @@ export default function landing() {
         <main>
           <div className="_logo">
             <Image
-              className="rounded "
+              className="rounded"
               alt="logo miu shop"
               src={logo}
               layout="responsive"
               placeholder="blur"
               blurDataURL={rgbDataURL()}
               quality={100}
+              priority
             />
           </div>
           <h1>WELCOME TO THE MIU SHOP!</h1>

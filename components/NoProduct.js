@@ -27,7 +27,7 @@ export default function PleaseSign() {
           <span>
             <Image
               className="rounded"
-              alt="500 error page miu shop"
+              alt="O"
               src={pic}
               layout="fixed"
               placeholder="blur"

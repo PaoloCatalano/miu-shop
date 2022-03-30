@@ -7,6 +7,7 @@
   --main-color-90: #09414a;
   --main-color-100: #021012;
 
+  --transparent: #ffffff80;
   --main-color-transparent: #17a3b87a;
   --main-color-100-transparent: #090c0c8c;
 
@@ -19,8 +20,15 @@
   --gray-100: #090c0c;
 
   --red-transparent: #ff0055c4;
-  --red: #ff0055;
   --red-danger: #dc3545;
+
+  --red-0: #ffe6ee;
+  --red-10: #ff99bb;
+  --red-30: #ff4d88;
+  --red: #ff0055;
+  --red-70: #b3003b;
+  --red-90: #660022;
+  --red-100: #330011;
 
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
@@ -136,6 +144,7 @@ button:focus {
 ._color-red {
   color: var(--red);
 }
+
 /* NAVBAR */
 ._navbar {
   border-radius: 0 0 15% 15%;
@@ -173,8 +182,8 @@ button:focus {
   transition: var(--transition);
 }
 
-button:focus ._toggler-icon {
-  transform: rotate(50deg);
+button:active ._toggler-icon {
+  transform: rotate(90deg);
 }
 button:disabled {
   cursor: not-allowed;
@@ -186,6 +195,17 @@ button:disabled {
   right: -60px;
   color: white;
   font-size: 14px;
+}
+._border-icon {
+  border: 1px solid var(--main-color-30) !important;
+}
+._border-icon-gray {
+  border: 1px solid var(--gray-0) !important;
+}
+
+._dropdown-menu-navbar {
+  position: absolute !important;
+  background-color: var(--main-color-10);
 }
 
 /* FILTER */
@@ -402,4 +422,18 @@ footer a:hover {
 ._image-container {
   display: grid;
   place-items: center;
+}
+
+/* USERS */
+._legend {
+  max-width: 25%;
+}
+._alert {
+  text-align: center;
+  position: relative;
+  font-size: 14px;
+  padding: 0.5rem 0.3rem;
+  margin-bottom: 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
 }

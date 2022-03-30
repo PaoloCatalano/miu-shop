@@ -6,7 +6,7 @@ import Cookie from "js-cookie";
 import Image from "next/image";
 import { FaShoppingCart } from "react-icons/fa";
 import { GiShirtButton } from "react-icons/gi";
-import { BsShopWindow } from "react-icons/bs";
+// import { BsShopWindow } from "react-icons/bs";
 
 function NavBar() {
   const router = useRouter();
@@ -26,7 +26,7 @@ function NavBar() {
     localStorage.removeItem("firstLogin");
     dispatch({ type: "AUTH", payload: {} });
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
-    return router.push("/");
+    return router.push("/landing");
   };
 
   const adminRouter = () => {
@@ -49,7 +49,7 @@ function NavBar() {
     return (
       <li className="nav-item dropdown">
         <a
-          className="nav-link dropdown-toggle icon-container"
+          className="nav-link dropdown-toggle icon-container "
           href="#"
           id="navbarDropdownMenuLink"
           data-toggle="dropdown"
@@ -59,7 +59,7 @@ function NavBar() {
           <Image
             src={auth.user.avatar}
             alt={auth.user.avatar}
-            className="rounded-circle"
+            className="rounded-circle _border-icon"
             layout="fixed"
             width={30}
             height={30}
@@ -67,7 +67,10 @@ function NavBar() {
           <span>{auth.user.name}</span>
         </a>
 
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div
+          className="dropdown-menu _dropdown-menu-navbar"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
           <Link href="/profile">
             <a className="dropdown-item">Profile</a>
           </Link>
@@ -87,29 +90,31 @@ function NavBar() {
         a {
           display: inline-flex;
         }
-        ._dash {
-          color: var(--red);
-        }
         button {
           width: 40px;
         }
-        .__shop-icon {
+        ._title {
           color: var(--main-color-10);
-          margin-right: 5px;
-          margin-top: -5px;
-        }
-        .__μ {
-          font-size: 32px;
-          margin-top: -14px;
+          margin-left: 0.5rem;
+          /* event-pointer: none; */
         }
       `}</style>
       <Link href="/">
         <a className="navbar-brand">
-          <div className="__shop-icon">
+          {/* <div className="_title">
             <BsShopWindow />{" "}
           </div>
           <div className="__μ">μ</div>
-          <span className="_dash">-</span>Shop
+          <span className="_dash">-</span>Shop */}
+          <Image
+            src="/icon.png"
+            alt="miu shop icon"
+            className="rounded-circle"
+            width={30}
+            height={30}
+            quality={100}
+          />
+          <span className="_title">Miu Shop</span>
         </a>
       </Link>
       <button
@@ -122,7 +127,7 @@ function NavBar() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <GiShirtButton className="_toggler-icon" />
+        <span className="title">MENU</span>
       </button>
       <div
         className="collapse navbar-collapse justify-content-end"

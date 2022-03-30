@@ -4,7 +4,6 @@ import { DataContext } from "../store/GlobalState";
 import Link from "next/link";
 import Image from "next/image";
 import PleaseSign from "../components/PleaseSign";
-import GoBack from "../components/GoBack";
 import { FaTimes, FaCheck, FaEdit, FaTrashAlt } from "react-icons/fa";
 
 const Users = () => {
@@ -17,7 +16,11 @@ const Users = () => {
       <Head>
         <title>Users</title>
       </Head>
-      <GoBack />
+
+      <legend className="mt-5">
+        <div className="_alert alert-danger _legend">ADMIN ROOT</div>
+        <div className="_alert alert-info _legend">ADMIN</div>
+      </legend>
       <table className="table w-100">
         <thead>
           <tr>
@@ -26,14 +29,23 @@ const Users = () => {
             <th>Avatar</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Admin</th>
+            <th>Verified</th>
             <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
           {users.map((user, index) => (
-            <tr key={user._id}>
+            <tr
+              key={user._id}
+              style={
+                user.root && user.role === "admin"
+                  ? { background: "var(--red-0)" }
+                  : user.role === "admin"
+                  ? { background: "var(--main-color-0)" }
+                  : null
+              }
+            >
               <th>{index + 1}</th>
               <th>{user._id}</th>
               <th>
@@ -43,21 +55,14 @@ const Users = () => {
                   layout="fixed"
                   width={30}
                   height={30}
-                  className="overflow-hidden rounded-circle"
+                  className="overflow-hidden rounded-circle _border-icon-gray"
                 />
               </th>
               <th>{user.name}</th>
               <th>{user.email}</th>
               <th>
-                {user.role === "admin" ? (
-                  user.root ? (
-                    <span className="text-success">
-                      <FaCheck className="text-success" />
-                      Root
-                    </span>
-                  ) : (
-                    <FaCheck className="text-success" />
-                  )
+                {user.isVerified ? (
+                  <FaCheck className="text-success" />
                 ) : (
                   <FaTimes className="text-danger" />
                 )}
