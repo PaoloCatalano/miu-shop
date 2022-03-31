@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { rgbDataURL } from "../utils/blurData";
 
 export default function LandingLayout({ children }) {

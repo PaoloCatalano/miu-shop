@@ -127,7 +127,7 @@ function NavBar() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="title">MENU</span>
+        <GiShirtButton className="_toggler-icon" />
       </button>
       <div
         className="collapse navbar-collapse justify-content-end"
