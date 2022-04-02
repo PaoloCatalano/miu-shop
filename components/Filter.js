@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import filterSearch from "../utils/filterSearch";
-import { getData } from "../utils/fetchData";
+import useDebounce from "../utils/useDebounce";
 import { useRouter } from "next/router";
 
 const Filter = ({ state }) => {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(
+    router?.query?.category ? router.query.category : ""
+  );
+  const debouncedSearchTerm = useDebounce(search, 300);
 
   const { categories } = state;
-
-  const router = useRouter();
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
@@ -23,8 +25,11 @@ const Filter = ({ state }) => {
   };
 
   useEffect(() => {
-    filterSearch({ router, search: search ? search.toLowerCase() : "all" });
-  }, [search]);
+    filterSearch({
+      router,
+      search: debouncedSearchTerm ? debouncedSearchTerm.toLowerCase() : "all",
+    });
+  }, [debouncedSearchTerm]);
 
   return (
     <div className="input-group">

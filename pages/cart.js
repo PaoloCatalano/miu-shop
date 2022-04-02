@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { useContext, useState, useEffect } from "react";
+import Head from "next/head";
 import { DataContext } from "../store/GlobalState";
 import CartItem from "../components/CartItem";
 import Link from "next/link";

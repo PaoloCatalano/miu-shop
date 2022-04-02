@@ -7,7 +7,12 @@ import Footer from "./Footer";
 function Layout({ children }) {
   const router = useRouter();
   if (router.asPath === "/landing" || router.asPath === "/landing/") {
-    return <div className="container">{children}</div>;
+    return (
+      <div className="container">
+        <Notify />
+        {children}
+      </div>
+    );
   }
   return (
     <div className="container">

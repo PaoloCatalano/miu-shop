@@ -1,9 +1,14 @@
 import { useContext, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import GoBack from "../components/GoBack";
+import { rgbDataURL } from "../utils/blurData";
+import categories_pic from "../public/categories.png";
 import { DataContext } from "../store/GlobalState";
 import { updateItem } from "../store/Actions";
 import { postData, putData } from "../utils/fetchData";
-import { FaTimes, FaCheck, FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 const Categories = () => {
   const [name, setName] = useState("");
@@ -50,13 +55,14 @@ const Categories = () => {
     return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
   };
 
-  const handleEditCategory = (catogory) => {
-    setId(catogory._id);
-    setName(catogory.name);
+  const handleEditCategory = (category) => {
+    setId(category._id);
+    setName(category.name);
   };
 
   return (
-    <div className="col-md-6 mx-auto my-3">
+    // <div className="col-md-6 mx-auto my-3">
+    <div className="col-sm mx-auto my-3">
       <Head>
         <title>Categories</title>
       </Head>
@@ -76,22 +82,38 @@ const Categories = () => {
           </button>
         </div>
       )}
-
-      {categories.map((catogory) => (
-        <div key={catogory._id} className="card my-2 text-capitalize">
-          <div className="card-body d-flex justify-content-between">
-            {catogory.name}
-
+      <div className="_image-container">
+        <Image
+          className="rounded"
+          alt="logo miu shop"
+          src={categories_pic}
+          layout="intrinsic"
+          placeholder="blur"
+          width={510}
+          height={382.5}
+          blurDataURL={rgbDataURL()}
+          quality={100}
+        />
+      </div>
+      <div className="_division"></div>
+      <ul className="categories products">
+        {categories.map((category) => (
+          <li key={category._id} className="my-4 text-capitalize">
+            <Link href={`/?category=${category._id}#products`}>
+              <a className="w-100 h-100">{category.name}</a>
+            </Link>
             {auth.user?.role === "admin" && (
-              <div style={{ cursor: "pointer" }}>
+              <div className="d-flex justify-content-around">
                 <span
+                  style={{ cursor: "pointer" }}
                   className="mr-2 text-info"
-                  onClick={() => handleEditCategory(catogory)}
+                  onClick={() => handleEditCategory(category)}
                 >
                   <FaEdit />
                 </span>
 
                 <span
+                  style={{ cursor: "pointer" }}
                   className="text-danger"
                   data-toggle="modal"
                   data-target="#exampleModal"
@@ -101,8 +123,8 @@ const Categories = () => {
                       payload: [
                         {
                           data: categories,
-                          id: catogory._id,
-                          title: catogory.name,
+                          id: category._id,
+                          title: category.name,
                           type: "ADD_CATEGORIES",
                         },
                       ],
@@ -113,9 +135,10 @@ const Categories = () => {
                 </span>
               </div>
             )}
-          </div>
-        </div>
-      ))}
+          </li>
+        ))}
+      </ul>
+      <GoBack />
     </div>
   );
 };

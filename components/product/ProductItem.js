@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { DataContext } from "../../store/GlobalState";
 import { addToCart } from "../../store/Actions";
 import { rgbDataURL } from "../../utils/blurData";
@@ -10,6 +11,9 @@ import AddButton from "../AddButton";
 const ProductItem = ({ product, handleCheck }) => {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth } = state;
+  const router = useRouter();
+
+  const noSalePage = router.pathname !== "/sales";
 
   const { prodSWR, isLoading, isError } = useProduct(product._id);
 
@@ -63,12 +67,12 @@ const ProductItem = ({ product, handleCheck }) => {
   };
   return (
     <div className="card _custom-card">
-      {auth.user && auth.user.role === "admin" && (
+      {noSalePage && auth.user && auth.user.role === "admin" && (
         <input
           type="checkbox"
           checked={product.checked}
           className="position-absolute"
-          style={{ height: "20px", width: "20px" }}
+          style={{ height: "20px", width: "20px", zIndex: 8 }}
           onChange={() => handleCheck(product._id)}
         />
       )}
@@ -84,6 +88,7 @@ const ProductItem = ({ product, handleCheck }) => {
             blurDataURL={rgbDataURL()}
             sizes="50vw"
             quality={100}
+            priority={true}
           />
         </a>
       </Link>
@@ -114,7 +119,10 @@ const ProductItem = ({ product, handleCheck }) => {
           )}
         </div>
 
-        <p className="card-text text-muted" title={product.description}>
+        <p
+          className="card-text text-muted text-capitalize"
+          title={product.description}
+        >
           {product.description}
         </p>
 

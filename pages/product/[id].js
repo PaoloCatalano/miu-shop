@@ -23,8 +23,10 @@ const DetailProduct = (props) => {
   const [tab, setTab] = useState(0);
 
   const { state, dispatch } = useContext(DataContext);
-  const { cart } = state;
-
+  const { cart, categories } = state;
+  const nameCategory = categories
+    .filter((category) => category._id === product.category)
+    .map((item) => item.name);
   //SWR
   const { prodSWR, isLoading, isError } = useProduct(prodID);
 
@@ -104,6 +106,12 @@ const DetailProduct = (props) => {
             </h6>
           )}
         </div>
+        <div className="d-inline-flex align-items-baseline ">
+          <h5 className="text-info mt-4 mr-2">Category:</h5>
+          <Link href={`/?category=${product.category}#products`}>
+            <a className="btn btn-outline-info">{nameCategory}</a>
+          </Link>
+        </div>
         <h5 className="text-info mt-4">Description:</h5>
         <div className="mb-5 _callout rounded">
           <h6 className="my-2">{product.description}</h6>
@@ -137,7 +145,7 @@ const DetailProduct = (props) => {
         )}
         <GoBack />
         <Link href="/cart">
-          <button type="button" className="btn btn-dark d-block my-3 px-5">
+          <button type="button" className="btn btn-warning d-block my-3 px-5">
             <a>Go to Cart</a>
           </button>
         </Link>

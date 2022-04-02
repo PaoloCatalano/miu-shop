@@ -47,9 +47,8 @@ export default function Contact() {
           </article>
           <article>
             <p>You can find more at our pages:</p>
-            <p>
-              <Socials />
-            </p>
+
+            <Socials />
           </article>
           <p>
             <strong>Enjoy shopping with us!</strong>

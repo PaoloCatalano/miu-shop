@@ -5,8 +5,11 @@ import { imageUpload } from "../../utils/imageUpload";
 import { postData, getData, putData } from "../../utils/fetchData";
 import { useRouter } from "next/router";
 import PleaseSign from "../../components/PleaseSign";
+import GoBack from "../../components/GoBack";
 
 const ProductsManager = () => {
+  const [checkOnSale, setCheckOnSale] = useState(false);
+
   const initialState = {
     title: "",
     price: 0,
@@ -14,8 +17,10 @@ const ProductsManager = () => {
     description: "",
     content: "",
     category: "",
+    onSale: false,
   };
   const [product, setProduct] = useState(initialState);
+
   const { title, price, inStock, description, content, category } = product;
 
   const [images, setImages] = useState([]);
@@ -32,6 +37,7 @@ const ProductsManager = () => {
       setOnEdit(true);
       getData(`product/${id}`).then((res) => {
         setProduct(res.product);
+        setCheckOnSale(res.product.onSale);
         setImages(res.product.images);
       });
     } else {
@@ -41,10 +47,19 @@ const ProductsManager = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    setProduct({ ...product, onSale: checkOnSale });
+  }, [checkOnSale]);
+
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
+
     setProduct({ ...product, [name]: value });
     dispatch({ type: "NOTIFY", payload: {} });
+  };
+
+  const handleCheck = () => {
+    setCheckOnSale(!checkOnSale);
   };
 
   const handleUploadInput = (e) => {
@@ -91,6 +106,7 @@ const ProductsManager = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (auth.user.role !== "admin")
       return dispatch({
         type: "NOTIFY",
@@ -190,7 +206,7 @@ const ProductsManager = () => {
             name="description"
             id="description"
             cols="30"
-            rows="4"
+            rows="3"
             placeholder="Description"
             onChange={handleChangeInput}
             className="d-block my-4 w-100 p-2"
@@ -201,12 +217,35 @@ const ProductsManager = () => {
             name="content"
             id="content"
             cols="30"
-            rows="6"
+            rows="4"
             placeholder="Content"
             onChange={handleChangeInput}
             className="d-block my-4 w-100 p-2"
             value={content}
           />
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <div className="input-group-text">
+                <input
+                  type="checkbox"
+                  aria-label="Checkbox for on sale input"
+                  onChange={handleCheck}
+                  id="onSale"
+                  name="onSale"
+                  checked={checkOnSale}
+                  style={{ width: "20px", height: "20px" }}
+                />
+              </div>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              aria-label="Text input with checkbox"
+              disabled
+              value="On Sale?"
+            />
+          </div>
 
           <div className="input-group-prepend px-0 my-2">
             <select
@@ -261,6 +300,7 @@ const ProductsManager = () => {
           </div>
         </div>
       </form>
+      <GoBack />
     </div>
   );
 };

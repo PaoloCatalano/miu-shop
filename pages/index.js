@@ -1,16 +1,20 @@
 import { useState, useContext, useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
 import { getData } from "../utils/fetchData";
 import ProductItem from "../components/product/ProductItem";
 import filterSearch from "../utils/filterSearch";
 import Filter from "../components/Filter";
+import CardLink from "../components/CardLink";
+import { rgbDataURL } from "../utils/blurData";
+import product_pic from "../public/products.png";
 
 const Home = (props) => {
   const [products, setProducts] = useState(props.products);
-
   const [isCheck, setIsCheck] = useState(false);
+  const [isAll, setIsAll] = useState(false);
   const [page, setPage] = useState(1);
   const router = useRouter();
 
@@ -36,6 +40,7 @@ const Home = (props) => {
     products.forEach((product) => (product.checked = !isCheck));
     setProducts([...products]);
     setIsCheck(!isCheck);
+    setIsAll(!isAll);
   };
 
   const handleDeleteAll = () => {
@@ -45,7 +50,11 @@ const Home = (props) => {
         deleteArr.push({
           data: "",
           id: product._id,
-          title: "Delete all selected products?",
+          title: `${
+            isAll
+              ? "___WARNING___ Delete ALL products?"
+              : "Delete selected products?"
+          }`,
           type: "DELETE_PRODUCT",
         });
       }
@@ -64,6 +73,23 @@ const Home = (props) => {
       <Head>
         <title>{process.env.WEBSITE_NAME} | Home</title>
       </Head>
+
+      <CardLink />
+
+      <div className="_image-container">
+        <Image
+          className="rounded"
+          alt="logo miu shop"
+          src={product_pic}
+          layout="intrinsic"
+          placeholder="blur"
+          width={510}
+          height={382.5}
+          blurDataURL={rgbDataURL()}
+          quality={100}
+        />
+      </div>
+      <div className="_division mb-5" id="products"></div>
 
       <Filter state={state} />
 
@@ -89,7 +115,7 @@ const Home = (props) => {
             data-target="#exampleModal"
             onClick={handleDeleteAll}
           >
-            DELETE ALL
+            {isAll ? "DELETE ALL" : "Delete"}
           </button>
         </div>
       )}

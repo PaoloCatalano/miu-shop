@@ -31,7 +31,7 @@ module.exports = {
       },
     ];
   },
-  // experimental: {
-  //   scrollRestoration: true, // like Gatsby scroll behavior
-  // },
+  experimental: {
+    scrollRestoration: true, // like Gatsby scroll behavior
+  },
 };

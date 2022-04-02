@@ -30,6 +30,30 @@
   --red-90: #660022;
   --red-100: #330011;
 
+  --yellow-0: #fffaeb;
+  --yellow-10: #ffebb0;
+  --yellow-30: #ffdc74;
+  --yellow-50: #ffcd39;
+  --yellow-70: #b39028;
+  --yellow-90: #665217;
+  --yellow-100: #33290b;
+
+  --indigo-0: #f9f5ff;
+  --indigo-10: #e7d9fd;
+  --indigo-30: #d4bcfc;
+  --indigo-50: #c29ffa;
+  --indigo-70: #886faf;
+  --indigo-90: #4e4064;
+  --indigo-100: #272032;
+
+  --green-0: #e9faf5;
+  --green-10: #a6e9d5;
+  --green-30: #20c997;
+  --green-50: #20c997;
+  --green-70: #168d6a;
+  --green-90: #0d503c;
+  --green-100: #06281e;
+
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
@@ -71,6 +95,10 @@ a {
 img {
   object-fit: cover;
   object-position: 0 30%;
+}
+
+ul {
+  padding: 0;
 }
 
 /* ----------- Loading ------------- */
@@ -274,6 +302,7 @@ option,
   border-left-width: 0.25rem;
   border-left-color: var(--main-color-30);
   box-shadow: var(--shadow-1);
+  font-variant: small-caps;
 }
 /* Footer */
 footer {
@@ -436,4 +465,51 @@ footer a:hover {
   margin-bottom: 0.3rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+}
+/* CATEGORIES */
+.categories {
+  justify-items: center;
+}
+.categories li {
+  width: 100%;
+  max-width: 200px;
+  height: 80px;
+  background: var(--main-color-10);
+  border: 2px solid;
+  border-color: var(--main-color-30);
+  color: var(--gray-70);
+  text-align: center;
+  font-weight: 900;
+  font-size: x-large;
+  text-shadow: 0 0 2px #fff;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+  opacity: 0.8;
+  user-select: none;
+  list-style: none;
+}
+.categories li a {
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.categories li:nth-child(4n + 3) {
+  background: var(--yellow-30);
+  border-color: var(--yellow-50);
+}
+.categories li:nth-child(4n + 2) {
+  background: var(--indigo-30);
+  border-color: var(--indigo-50);
+}
+.categories li:nth-child(4n) {
+  background: var(--green-10);
+  border-color: var(--green-30);
+}
+
+.categories li:hover {
+  box-shadow: var(--shadow-2);
+  text-shadow: 1px 1px 3px #fff;
+  opacity: 1;
+  text-decoration: none;
 }

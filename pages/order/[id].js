@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
+import Head from "next/head";
 import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 import GoBack from "../../components/GoBack";
@@ -27,13 +27,13 @@ const DetailOrder = () => {
         <title>Detail Orders</title>
       </Head>
 
-      <GoBack />
-
       <OrderDetail
         orderDetail={orderDetail}
         state={state}
         dispatch={dispatch}
       />
+
+      <GoBack />
     </div>
   );
 };

@@ -29,7 +29,17 @@ class APIfeatures {
     if (queryObj.category !== "all")
       this.query.find({ category: queryObj.category });
     if (queryObj.title !== "all")
-      this.query.find({ title: { $regex: queryObj.title } });
+      this.query.find({
+        $or: [
+          { title: { $regex: queryObj.title } },
+          {
+            content: { $regex: queryObj.title },
+          },
+          {
+            description: { $regex: queryObj.title },
+          },
+        ],
+      });
 
     this.query.find();
     return this;
@@ -80,8 +90,16 @@ const createProduct = async (req, res) => {
     if (result.role !== "admin")
       return res.status(400).json({ err: "Authentication is not valid." });
 
-    const { title, price, inStock, description, content, category, images } =
-      req.body;
+    const {
+      title,
+      price,
+      inStock,
+      description,
+      content,
+      category,
+      onSale,
+      images,
+    } = req.body;
 
     if (
       !title ||
@@ -98,8 +116,9 @@ const createProduct = async (req, res) => {
       title: title.toLowerCase(),
       price,
       inStock,
-      description,
-      content,
+      description: description.toLowerCase(),
+      content: content.toLowerCase(),
+      onSale,
       category,
       images,
     });

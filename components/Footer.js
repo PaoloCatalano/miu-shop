@@ -13,7 +13,7 @@ const Footer = () => {
         <span className="_info-bold">{process.env.WEBSITE_NAME} </span>
         &copy; {new Date().getFullYear()}
       </div>
-      <Socials contactLink />
+      <Socials />
     </footer>
   );
 };
