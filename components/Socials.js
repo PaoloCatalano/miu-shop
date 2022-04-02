@@ -9,7 +9,7 @@ export default function Socials() {
           <FaInstagramSquare className="_social-icon " />
         </a>
       </Link>
-      <Link href="http://www.Facebook.com">
+      <Link href="https://www.facebook.com/profile.php?id=100080154698164">
         <a target="_blank" rel="noopener noreferrer">
           <FaFacebookSquare className="_social-icon " />
         </a>
