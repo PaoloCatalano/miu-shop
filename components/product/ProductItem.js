@@ -72,7 +72,7 @@ const ProductItem = ({ product, handleCheck }) => {
           type="checkbox"
           checked={product.checked}
           className="position-absolute"
-          style={{ height: "20px", width: "20px", zIndex: 8 }}
+          style={{ height: "20px", width: "20px", zIndex: 1 }}
           onChange={() => handleCheck(product._id)}
         />
       )}

@@ -44,7 +44,7 @@ export default function verifyEmail() {
         )}
       </div>
       <Link href="/">
-        <button type="button" className="btn btn-success w-100 text-uppercase">
+        <button type="button" className="btn btn-warning w-100 text-uppercase">
           <a> enjoy shopping </a>
         </button>
       </Link>

@@ -321,6 +321,7 @@ footer {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  z-index: 8;
 }
 
 ._social-icon {
