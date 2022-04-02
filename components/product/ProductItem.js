@@ -19,17 +19,27 @@ const ProductItem = ({ product, handleCheck }) => {
 
   const userLink = () => {
     return (
-      <button
-        className="btn btn-info"
-        style={{ marginLeft: "5px", flex: 1 }}
-        disabled={prodSWR?.product?.inStock === 0 ? true : false}
-        onClick={() => {
-          dispatch({ type: "NOTIFY", payload: { success: "Added to cart" } });
-          return dispatch(addToCart(product, cart));
-        }}
-      >
-        <AddButton />
-      </button>
+      <>
+        <Link href={`/product/${product._id}`}>
+          <a
+            className="btn btn-outline-info"
+            style={{ marginRight: "5px", flex: 1 }}
+          >
+            View
+          </a>
+        </Link>
+        <button
+          className="btn btn-warning"
+          style={{ marginLeft: "5px", flex: 1 }}
+          disabled={prodSWR?.product?.inStock === 0 ? true : false}
+          onClick={() => {
+            dispatch({ type: "NOTIFY", payload: { success: "Added to cart" } });
+            return dispatch(addToCart(product, cart));
+          }}
+        >
+          <AddButton />
+        </button>
+      </>
     );
   };
 
