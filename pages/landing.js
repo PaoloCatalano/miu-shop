@@ -18,17 +18,17 @@ export default function landing() {
               className="rounded"
               alt="logo miu shop"
               src={logo}
-              layout="responsive"
+              width={500}
+              height={500}
               placeholder="blur"
               blurDataURL={rgbDataURL()}
               quality={100}
               priority
             />
           </div>
-          <h1>WELCOME TO THE MIU SHOP!</h1>
+          <h2>WELCOME TO THE MIU SHOP!</h2>
           <h4>
-            You will find stickers, dolls, clothes, kimonos, paintings,
-            handcrafts, and much more.
+            You will find stickers, dolls, kimonos, handcrafts, and much more.
           </h4>
 
           <Link href="/">
