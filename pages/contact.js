@@ -13,6 +13,7 @@ export default function Contact() {
         description={`For any question or information, do not hesitate to contact us at the following email: ${process.env.ADMIN_EMAIL}`}
         canonical="https://miu-shop.vercel.app/contact"
         openGraph={{
+          title: `${process.env.WEBSITE_NAME} | Contact`,
           url: "https://miu-shop.vercel.app/contact",
         }}
       />

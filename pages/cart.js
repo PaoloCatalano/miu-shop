@@ -152,6 +152,7 @@ const Cart = () => {
         title={`${process.env.WEBSITE_NAME} | Cart`}
         canonical="https://miu-shop.vercel.app/cart"
         openGraph={{
+          title: `${process.env.WEBSITE_NAME} | Cart`,
           url: "https://miu-shop.vercel.app/cart",
         }}
       />

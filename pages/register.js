@@ -108,6 +108,7 @@ const Register = () => {
         title={`${process.env.WEBSITE_NAME} | Sign Up`}
         canonical="https://miu-shop.vercel.app/register"
         openGraph={{
+          title: `${process.env.WEBSITE_NAME} | Sign Up`,
           url: "https://miu-shop.vercel.app/register",
         }}
       />

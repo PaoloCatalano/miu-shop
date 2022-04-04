@@ -3,7 +3,7 @@ export default {
     type: "website",
     locale: "en_IE",
     site_name: process.env.WEBSITE_NAME,
-    title: "Open Graph Miu Shop",
+    title: "Miu Shop",
     description:
       "In this e-commerce web site you can buy stickers, dolls, kimonos, handcrafts, and much more.",
     url: "https://miu-shop.vercel.app/",

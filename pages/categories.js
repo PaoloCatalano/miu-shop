@@ -70,6 +70,7 @@ const Categories = () => {
         )}`}
         canonical="https://miu-shop.vercel.app/categories"
         openGraph={{
+          title: `${process.env.WEBSITE_NAME} | Categories`,
           url: "https://miu-shop.vercel.app/categories",
         }}
       />

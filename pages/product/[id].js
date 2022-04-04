@@ -22,8 +22,6 @@ const DetailProduct = (props) => {
   const [product] = useState(props.product);
   const [tab, setTab] = useState(0);
 
-  console.log();
-
   const { state, dispatch } = useContext(DataContext);
   const { cart, categories } = state;
   const nameCategory = categories
@@ -44,6 +42,7 @@ const DetailProduct = (props) => {
         description={product.description + ", " + product.content}
         canonical={`https://miu-shop.vercel.app/product/${product._id}`}
         openGraph={{
+          title: `${process.env.WEBSITE_NAME} | ${product.title.toUpperCase()}`,
           url: `https://miu-shop.vercel.app/product/${product._id}`,
           images: [
             {
