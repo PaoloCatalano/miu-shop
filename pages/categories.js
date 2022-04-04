@@ -71,6 +71,7 @@ const Categories = () => {
         canonical="https://miu-shop.vercel.app/categories"
         openGraph={{
           title: `${process.env.WEBSITE_NAME} | Categories`,
+          description: `Categories: ${categories.map((c) => c.name)}`,
           url: "https://miu-shop.vercel.app/categories",
         }}
       />

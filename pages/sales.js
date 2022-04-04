@@ -28,6 +28,7 @@ const OnSale = (props) => {
         canonical="https://miu-shop.vercel.app/sales"
         openGraph={{
           title: `${process.env.WEBSITE_NAME} | On Sale`,
+              description:"Here you can find all the Special Offers and product On Sale!",
           url: "https://miu-shop.vercel.app/sales",
         }}
       />
