@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
 import GoBack from "../components/GoBack";
@@ -63,9 +63,16 @@ const Categories = () => {
   return (
     // <div className="col-md-6 mx-auto my-3">
     <div className="col-sm mx-auto my-3">
-      <Head>
-        <title>Categories</title>
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Categories`}
+        description={`In this e-commerce website you will find categories like: ${categories.map(
+          (c) => c.name
+        )}`}
+        canonical="https://miu-shop.vercel.app/categories"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/categories",
+        }}
+      />
 
       {auth.user?.role === "admin" && (
         <div className="input-group mb-3">
@@ -98,7 +105,7 @@ const Categories = () => {
       <div className="_division"></div>
       <ul className="categories products">
         {categories.map((category) => (
-          <li key={category._id} className="my-4 text-capitalize">
+          <li key={category._id} className="my-4 text-capitalize rounded">
             <Link href={`/?category=${category._id}#products`}>
               <a className="w-100 h-100">{category.name}</a>
             </Link>

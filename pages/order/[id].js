@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 import GoBack from "../../components/GoBack";
@@ -23,9 +23,7 @@ const DetailOrder = () => {
 
   return (
     <div className="my-3">
-      <Head>
-        <title>Detail Orders</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Order Detail`} />
 
       <OrderDetail
         orderDetail={orderDetail}

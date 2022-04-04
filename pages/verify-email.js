@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 import { postData } from "../utils/fetchData";
 import { DataContext } from "../store/GlobalState";
 import { useRouter } from "next/router";
@@ -36,6 +37,7 @@ export default function verifyEmail() {
 
   return (
     <div className="row mx-auto">
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Verify Email`} />
       <div className=" w-100  table-responsive my-5 ">
         {Object.keys(router.query).length > 0 && !error && (
           <h2 className="text-uppercase alert-success px-3">

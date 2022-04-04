@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import GoBack from "../components/GoBack";
 import Socials from "../components/Socials";
@@ -8,10 +8,15 @@ import logo from "../public/logo.png";
 export default function Contact() {
   return (
     <div className="row _contact-page">
-      <Head>
-        <title>Contact Page</title>
-      </Head>
-      <div className="col-md-6 mx-auto">
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Contact Page`}
+        description={`For any question or information, do not hesitate to contact us at the following email: ${process.env.ADMIN_EMAIL}`}
+        canonical="https://miu-shop.vercel.app/contact"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/contact",
+        }}
+      />
+      <div className="col-md-8 mx-auto">
         <div className="_image-container">
           <Image
             className="rounded"

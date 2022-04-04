@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import LandingLayout from "../components/LandingLayout";
 import logo from "../public/logo.png";
 import { rgbDataURL } from "../utils/blurData";
@@ -8,9 +8,14 @@ import { rgbDataURL } from "../utils/blurData";
 export default function landing() {
   return (
     <div className="_landing">
-      <Head>
-        <title>{process.env.WEBSITE_NAME}</title>
-      </Head>
+      <NextSeo
+        //  title={`${process.env.WEBSITE_NAME} | Landing`}
+        // description="In this e-commerce...."
+        canonical="https://miu-shop.vercel.app/landing"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/landing",
+        }}
+      />
       <LandingLayout>
         <main>
           <div className="_logo">

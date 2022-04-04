@@ -1,7 +1,9 @@
+import { SWRConfig } from "swr";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { DataProvider } from "../store/GlobalState";
-import { SWRConfig } from "swr";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,6 +20,7 @@ function MyApp({ Component, pageProps }) {
     >
       <DataProvider>
         <Layout>
+          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </Layout>
       </DataProvider>

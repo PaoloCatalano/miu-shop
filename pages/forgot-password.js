@@ -1,10 +1,9 @@
-import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { useState, useContext } from "react";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
-import Cookie from "js-cookie";
+import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
 import { postData } from "../utils/fetchData";
-import { useRouter } from "next/router";
 
 const Signin = () => {
   const initialState = { email: "" };
@@ -42,9 +41,7 @@ const Signin = () => {
 
   return (
     <div>
-      <Head>
-        <title>Forgot password in Page</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Forgot Password`} />
 
       <form
         className="mx-auto my-4"

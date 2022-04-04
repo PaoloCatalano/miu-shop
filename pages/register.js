@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Link from "next/link";
 import { useState, useContext, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import valid, { validateNumber } from "../utils/valid";
 import { DataContext } from "../store/GlobalState";
 import { postData } from "../utils/fetchData";
-import { useRouter } from "next/router";
 
 const Register = () => {
   const initialState = {
@@ -104,10 +104,13 @@ const Register = () => {
 
   return (
     <div>
-      <Head>
-        <title>Register Page</title>
-      </Head>
-
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Sign Up`}
+        canonical="https://miu-shop.vercel.app/register"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/register",
+        }}
+      />
       <form
         className="mx-auto my-4"
         style={{ maxWidth: "500px" }}

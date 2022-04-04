@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect } from "react";
-import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import { DataContext } from "../store/GlobalState";
 import CartItem from "../components/CartItem";
-import Link from "next/link";
 import { getData, postData } from "../utils/fetchData";
-import { useRouter } from "next/router";
 import GoBack from "../components/GoBack";
 import { validateNumber } from "../utils/valid";
 
@@ -148,9 +148,13 @@ const Cart = () => {
 
   return (
     <div className="row mx-auto">
-      <Head>
-        <title>Cart Page</title>
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Cart`}
+        canonical="https://miu-shop.vercel.app/cart"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/cart",
+        }}
+      />
 
       <div className="col-md-8 text-secondary table-responsive my-3">
         <h2 className="text-uppercase">Shopping Cart</h2>

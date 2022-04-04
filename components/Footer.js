@@ -1,12 +1,17 @@
 import React from "react";
 import Socials from "./Socials";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="navbar navbar-expand-lg">
       <div className="_lg">
         Copyright &copy; {new Date().getFullYear()}{" "}
-        <span className="_info-bold">{process.env.WEBSITE_NAME} </span>
+        <span className="_info-bold">
+          <Link href="/">
+            <a>{process.env.WEBSITE_NAME}</a>
+          </Link>
+        </span>{" "}
         All Rights Reserved. Powered by{" "}
         <a href="http://vercel.com" target="_blank" rel="noopener noreferrer">
           ▲

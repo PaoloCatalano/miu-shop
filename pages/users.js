@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { useContext } from "react";
 import { DataContext } from "../store/GlobalState";
 import Link from "next/link";
@@ -13,24 +13,28 @@ const Users = () => {
   if (!auth.user || auth.user.role !== "admin") return <PleaseSign />;
   return (
     <div className="table-responsive">
-      <Head>
-        <title>Users</title>
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Users`}
+        openGraph={{
+          url: "https://miu-shop.vercel.app/users",
+        }}
+      />
 
       <legend className="mt-5">
         <div className="_alert alert-danger _legend">ADMIN ROOT</div>
         <div className="_alert alert-info _legend">ADMIN</div>
       </legend>
-      <table className="table w-100">
+
+      <table className="table w-100 ">
         <thead>
           <tr>
             <th></th>
-            <th>ID</th>
             <th>Avatar</th>
             <th>Name</th>
             <th>Email</th>
             <th>Verified</th>
             <th>Action</th>
+            <th>ID</th>
           </tr>
         </thead>
 
@@ -47,7 +51,7 @@ const Users = () => {
               }
             >
               <th>{index + 1}</th>
-              <th>{user._id}</th>
+
               <th>
                 <Image
                   src={user.avatar}
@@ -68,51 +72,54 @@ const Users = () => {
                 )}
               </th>
               <th>
-                <Link
-                  href={
-                    auth.user.root && auth.user.email !== user.email
-                      ? `/edit_user/${user._id}`
-                      : "#!"
-                  }
-                >
-                  <a>
-                    <FaEdit className="text-info mr-2" title="Edit" />
-                  </a>
-                </Link>
-
-                {auth.user.root && auth.user.email !== user.email ? (
-                  <span
-                    style={{ cursor: "pointer" }}
-                    className="text-danger ml-2"
-                    title="Remove"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                    onClick={() =>
-                      dispatch({
-                        type: "ADD_MODAL",
-                        payload: [
-                          {
-                            data: users,
-                            id: user._id,
-                            title: user.name,
-                            type: "ADD_USERS",
-                          },
-                        ],
-                      })
+                <div className="d-flex justify-content-between">
+                  <Link
+                    href={
+                      auth.user.root && auth.user.email !== user.email
+                        ? `/edit_user/${user._id}`
+                        : "#!"
                     }
                   >
-                    <FaTrashAlt />
-                  </span>
-                ) : (
-                  <span>
-                    <FaTrashAlt
-                      className="text-success ml-2"
-                      title="Can't Remove"
-                      style={{ cursor: "not-allowed" }}
-                    />
-                  </span>
-                )}
+                    <a>
+                      <FaEdit className="text-info mr-2" title="Edit" />
+                    </a>
+                  </Link>
+
+                  {auth.user.root && auth.user.email !== user.email ? (
+                    <span
+                      style={{ cursor: "pointer" }}
+                      className="text-danger ml-2"
+                      title="Remove"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                      onClick={() =>
+                        dispatch({
+                          type: "ADD_MODAL",
+                          payload: [
+                            {
+                              data: users,
+                              id: user._id,
+                              title: user.name,
+                              type: "ADD_USERS",
+                            },
+                          ],
+                        })
+                      }
+                    >
+                      <FaTrashAlt />
+                    </span>
+                  ) : (
+                    <span>
+                      <FaTrashAlt
+                        className="text-success ml-2"
+                        title="Can't Remove"
+                        style={{ cursor: "not-allowed" }}
+                      />
+                    </span>
+                  )}
+                </div>
               </th>
+              <th>{user._id}</th>
             </tr>
           ))}
         </tbody>

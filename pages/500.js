@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import pic from "../public/500.png";
 import { rgbDataURL } from "../utils/blurData";
 import GoBack from "../components/GoBack";
@@ -8,9 +8,7 @@ import GoBack from "../components/GoBack";
 export default function ErrorPage() {
   return (
     <div>
-      <Head>
-        <title>500 server error</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Server Error Page`} />
       <div className="_image-container">
         <Image
           className="rounded"

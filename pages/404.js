@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import pic from "../public/404.png";
 import { rgbDataURL } from "../utils/blurData";
 import GoBack from "../components/GoBack";
@@ -8,9 +8,7 @@ import GoBack from "../components/GoBack";
 export default function ErrorPage() {
   return (
     <div>
-      <Head>
-        <title>404 Error Page</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Page Not Found`} />
       <div className="_image-container">
         <Image
           className="rounded"

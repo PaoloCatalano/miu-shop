@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { useState, useContext } from "react";
+import { NextSeo } from "next-seo";
 import { DataContext } from "../store/GlobalState";
 import { postData } from "../utils/fetchData";
 import { useRouter } from "next/router";
@@ -58,9 +58,7 @@ const Signin = () => {
 
   return (
     <div>
-      <Head>
-        <title>Reset password in Page</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Reset Password`} />
 
       <form
         className="mx-auto my-4"
@@ -77,7 +75,6 @@ const Signin = () => {
             name="password"
             value={password}
             onChange={handleChangeInput}
-            required
             minLength={6}
           />
         </div>

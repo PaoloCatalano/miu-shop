@@ -4,7 +4,7 @@ import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 export default function Socials() {
   return (
     <div>
-      <Link href="http://www.instagram.com">
+      <Link href="https://www.instagram.com/miu_nyamaid/">
         <a target="_blank" rel="noopener noreferrer">
           <FaInstagramSquare className="_social-icon " />
         </a>

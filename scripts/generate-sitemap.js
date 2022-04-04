@@ -25,13 +25,13 @@ async function generateSitemap() {
         "_error.js",
         "sitemap.xml.js",
         "api",
-        "404",
-        "500",
-        "create",
-        "edit_user",
-        "order",
-        "users",
-        "verify-email",
+        "404.js",
+        "500.js",
+        "create.js",
+        "edit_user.js",
+        "order.js",
+        "users.js",
+        "verify-email.js",
       ].includes(staticPage);
     })
     .map((staticPagePath) => {

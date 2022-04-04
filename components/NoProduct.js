@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import pic from "../public/oops.jpeg";
 import { rgbDataURL } from "../utils/blurData";
@@ -19,9 +19,7 @@ export default function PleaseSign() {
           margin-top: 5rem;
         }
       `}</style>
-      <Head>
-        <title>Product not available</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Product Not Available`} />
       <div className="_center">
         <h1 className="_center _h1style">
           <span>

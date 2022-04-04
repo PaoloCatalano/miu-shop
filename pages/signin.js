@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Cookie from "js-cookie";
 import { DataContext } from "../store/GlobalState";
@@ -53,9 +53,13 @@ const Signin = () => {
 
   return (
     <div>
-      <Head>
-        <title>Sign in Page</title>
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | Sign In`}
+        canonical="https://miu-shop.vercel.app/signin"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/signin",
+        }}
+      />
 
       <form
         className="mx-auto my-4"

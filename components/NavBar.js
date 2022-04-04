@@ -101,11 +101,6 @@ function NavBar() {
       `}</style>
       <Link href="/">
         <a className="navbar-brand">
-          {/* <div className="_title">
-            <BsShopWindow />{" "}
-          </div>
-          <div className="__μ">μ</div>
-          <span className="_dash">-</span>Shop */}
           <Image
             src="/icon.png"
             alt="miu shop icon"

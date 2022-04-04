@@ -1,9 +1,9 @@
-import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import { DataContext } from "../../store/GlobalState";
 import { imageUpload } from "../../utils/imageUpload";
 import { postData, getData, putData } from "../../utils/fetchData";
-import { useRouter } from "next/router";
 import PleaseSign from "../../components/PleaseSign";
 import GoBack from "../../components/GoBack";
 
@@ -160,9 +160,7 @@ const ProductsManager = () => {
 
   return (
     <div className="products_manager">
-      <Head>
-        <title>Products Manager</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Create Product`} />
       <form className="row" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <input

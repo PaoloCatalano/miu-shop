@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import Head from "next/head";
+import { NextSeo, ProductJsonLd } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
 import NoProduct from "../../components/NoProduct";
@@ -22,6 +22,8 @@ const DetailProduct = (props) => {
   const [product] = useState(props.product);
   const [tab, setTab] = useState(0);
 
+  console.log(product);
+
   const { state, dispatch } = useContext(DataContext);
   const { cart, categories } = state;
   const nameCategory = categories
@@ -37,13 +39,52 @@ const DetailProduct = (props) => {
 
   return (
     <div className="row detail_page">
-      <Head>
-        <title>Detail Product</title>
-        <meta
-          name="description"
-          content={product.description + ", " + product.content}
-        />
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | ${product.title.toUpperCase()}`}
+        description={product.description + ", " + product.content}
+        canonical={`https://miu-shop.vercel.app/product/${product._id}`}
+        openGraph={{
+          url: `https://miu-shop.vercel.app/product/${product._id}`,
+          images: [
+            {
+              url: product.images[0].url,
+              width: 500,
+              height: 500,
+              alt: product.title,
+            },
+            {
+              url: "https://miu-shop.vercel.app/icon.png",
+              width: 1000,
+              height: 1000,
+              alt: "Miu Shop letter μ",
+            },
+          ],
+        }}
+      />
+
+      <ProductJsonLd
+        productName={product.title}
+        images={product.images.map((i) => i.url)}
+        description={`${product.description} + ", " + ${product.content}`}
+        manufacturerName="Miu Shop"
+        manufacturerLogo="https://miu-shop.vercel.app/icon.png"
+        disambiguatingDescription={product.content}
+        releaseDate={product.updatedAt}
+        productionDate={product.createdAt}
+        offers={[
+          {
+            price: product.price,
+            priceCurrency: "EUR",
+            priceValidUntil: "2030-12-05",
+            itemCondition: "https://schema.org/NewCondition",
+            availability: "https://schema.org/InStock",
+            url: `https://miu-shop.vercel.app/product/${product._id}`,
+            seller: {
+              name: "Miu Shop",
+            },
+          },
+        ]}
+      />
 
       <div className="col-md-6 ">
         <div className="position-relative image-container">
@@ -114,8 +155,8 @@ const DetailProduct = (props) => {
         </div>
         <h5 className="text-info mt-4">Description:</h5>
         <div className="mb-5 _callout rounded">
-          <h6 className="my-2">{product.description}</h6>
-          <div className="my-2">{product.content}</div>
+          <h6 className="my-2 text-capitalize">{product.description}</h6>
+          <div className="my-2 text-muted ">{product.content}</div>
         </div>
         {product.inStock <= 0 ? (
           <button

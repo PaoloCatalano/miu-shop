@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import GoBack from "./GoBack";
 import Loading from "./Loading";
 
@@ -16,16 +16,14 @@ export default function PleaseSign() {
     <div className="home_page">
       {show ? (
         <>
-          <Head>
-            <title>Miu Loading...</title>
-          </Head>
+          <NextSeo title="Miu Landing..." />
           <Loading />
         </>
       ) : (
         <>
-          <Head>
-            <title>Unauthorized Access</title>
-          </Head>
+          <NextSeo
+            title={`${process.env.WEBSITE_NAME} | Unauthorized Access`}
+          />
 
           <h1 style={{ textAlign: "center", marginTop: "1rem" }}>
             Unauthorized Access

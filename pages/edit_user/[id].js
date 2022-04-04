@@ -1,9 +1,9 @@
-import Head from "next/head";
 import { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import { DataContext } from "../../store/GlobalState";
 import { updateItem } from "../../store/Actions";
 import GoBack from "../../components/GoBack";
-import { useRouter } from "next/router";
 import { patchData } from "../../utils/fetchData";
 import PleaseSign from "../../components/PleaseSign";
 
@@ -61,10 +61,7 @@ const EditUser = () => {
 
   return (
     <div className="edit_user my-3">
-      <Head>
-        <title>Edit User</title>
-      </Head>
-
+      <NextSeo title={`${process.env.WEBSITE_NAME} | Edit User`} />
       <GoBack />
 
       <div className="col-md-4 mx-auto my-4">

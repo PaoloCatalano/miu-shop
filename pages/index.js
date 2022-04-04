@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
@@ -70,9 +70,12 @@ const Home = (props) => {
 
   return (
     <div className="home_page">
-      <Head>
-        <title>{process.env.WEBSITE_NAME} | Home</title>
-      </Head>
+      <NextSeo
+        canonical="https://miu-shop.vercel.app/"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/",
+        }}
+      />
 
       <CardLink />
 

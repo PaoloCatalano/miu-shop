@@ -1,8 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
-import PleaseSign from "../components/PleaseSign";
 import { DataContext } from "../store/GlobalState";
 import valid, { validateNumber } from "../utils/valid";
 import { patchData } from "../utils/fetchData";
@@ -185,9 +184,7 @@ const Profile = () => {
 
   return (
     <div className="profile_page">
-      <Head>
-        <title>Profile</title>
-      </Head>
+      <NextSeo title={`${process.env.WEBSITE_NAME} | ${name} Profile`} />
       {!auth.user.isVerified && (
         <div className="my-3 w-100vw alert alert-danger" role="alert">
           <center>

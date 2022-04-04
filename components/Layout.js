@@ -15,15 +15,12 @@ function Layout({ children }) {
     );
   }
   return (
-    <div className="container">
+    <div className="container _grid-nav-main-footer">
       <NavBar />
       <Notify />
       <Modal />
-      <div style={{ marginBottom: "9rem" }}>
-        {children}
-
-        <Footer />
-      </div>
+      <div style={{ marginBottom: "9rem" }}>{children}</div>
+      <Footer />
     </div>
   );
 }

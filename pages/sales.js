@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { getData } from "../utils/fetchData";
 import ProductItem from "../components/product/ProductItem";
@@ -23,9 +23,13 @@ const OnSale = (props) => {
 
   return (
     <div className="home_page">
-      <Head>
-        <title>{process.env.WEBSITE_NAME} | On Sale!</title>
-      </Head>
+      <NextSeo
+        title={`${process.env.WEBSITE_NAME} | On Sale`}
+        canonical="https://miu-shop.vercel.app/sales"
+        openGraph={{
+          url: "https://miu-shop.vercel.app/sales",
+        }}
+      />
 
       <div className="_image-container">
         <Image
