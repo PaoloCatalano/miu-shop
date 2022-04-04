@@ -22,7 +22,7 @@ const DetailProduct = (props) => {
   const [product] = useState(props.product);
   const [tab, setTab] = useState(0);
 
-  console.log(product);
+  console.log();
 
   const { state, dispatch } = useContext(DataContext);
   const { cart, categories } = state;
@@ -47,16 +47,10 @@ const DetailProduct = (props) => {
           url: `https://miu-shop.vercel.app/product/${product._id}`,
           images: [
             {
-              url: product.images[0].url,
-              width: 500,
-              height: 500,
-              alt: product.title,
-            },
-            {
-              url: "https://miu-shop.vercel.app/icon.png",
+              url: `${process.env.BASE_URL}/_next/image?url=${product.images[0].url}&w=3840&q=100`,
               width: 1000,
               height: 1000,
-              alt: "Miu Shop letter μ",
+              alt: product.title,
             },
           ],
         }}
@@ -65,7 +59,7 @@ const DetailProduct = (props) => {
       <ProductJsonLd
         productName={product.title}
         images={product.images.map((i) => i.url)}
-        description={`${product.description} + ", " + ${product.content}`}
+        description={product.description}
         manufacturerName="Miu Shop"
         manufacturerLogo="https://miu-shop.vercel.app/icon.png"
         disambiguatingDescription={product.content}

@@ -9,16 +9,16 @@ export default {
     url: "https://miu-shop.vercel.app/",
     images: [
       {
-        url: "https://miu-shop.vercel.app/logo.png",
-        width: 1000,
-        height: 1000,
-        alt: "Miu Shop character",
-      },
-      {
         url: "https://miu-shop.vercel.app/icon.png",
         width: 1000,
         height: 1000,
         alt: "Miu Shop letter μ",
+      },
+      {
+        url: "https://miu-shop.vercel.app/logo.png",
+        width: 1000,
+        height: 1000,
+        alt: "Miu Shop character",
       },
     ],
   },
