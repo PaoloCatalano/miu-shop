@@ -60,18 +60,22 @@ const Categories = () => {
     setName(category.name);
   };
 
+  const AllCategories =
+    categories
+      ?.map((c) => c.name)
+      .join(", ")
+      .toString() || "";
+
   return (
     // <div className="col-md-6 mx-auto my-3">
     <div className="col-sm mx-auto my-3">
       <NextSeo
         title={`${process.env.WEBSITE_NAME} | Categories`}
-        description={`In this e-commerce website you will find categories like: ${categories.map(
-          (c) => c.name
-        )}`}
+        description={`In this e-commerce website you will find categories like: ${AllCategories} and many more!`}
         canonical="https://miu-shop.vercel.app/categories"
         openGraph={{
           title: `${process.env.WEBSITE_NAME} | Categories`,
-          description: `Categories: ${categories.map((c) => c.name)}`,
+          description: `Categories: ${AllCategories} and many more!`,
           url: "https://miu-shop.vercel.app/categories",
         }}
       />
