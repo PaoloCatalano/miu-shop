@@ -10,10 +10,14 @@ import AddButton from "../AddButton";
 
 const ProductItem = ({ product, handleCheck }) => {
   const { state, dispatch } = useContext(DataContext);
-  const { cart, auth } = state;
+  const { cart, auth, categories } = state;
   const router = useRouter();
 
   const noSalePage = router.pathname !== "/sales";
+
+  const nameCategory = categories
+    .filter((category) => category._id === product.category)
+    .map((item) => item.name);
 
   const { prodSWR, isLoading, isError } = useProduct(product._id);
 
@@ -77,6 +81,10 @@ const ProductItem = ({ product, handleCheck }) => {
   };
   return (
     <div className="card _custom-card">
+      <div className="text-uppercase text-center font-weight-bold _nameCategory-title">
+        {nameCategory}
+      </div>
+
       {noSalePage && auth.user && auth.user.role === "admin" && (
         <input
           type="checkbox"
@@ -88,6 +96,11 @@ const ProductItem = ({ product, handleCheck }) => {
       )}
       <Link href={`/product/${product._id}`}>
         <a className="card-img-top position-relative">
+          {product.onSale && (
+            <div className="polygon">
+              <p>sale</p>
+            </div>
+          )}
           <Image
             className="card-img-top"
             src={product.images[0].url}
@@ -131,6 +144,7 @@ const ProductItem = ({ product, handleCheck }) => {
 
         <p
           className="card-text text-muted text-capitalize"
+          style={{ height: 35 }}
           title={product.description}
         >
           {product.description}

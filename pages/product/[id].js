@@ -24,6 +24,7 @@ const DetailProduct = (props) => {
 
   const { state, dispatch } = useContext(DataContext);
   const { cart, categories } = state;
+
   const nameCategory = categories
     .filter((category) => category._id === product.category)
     .map((item) => item.name);
@@ -143,12 +144,13 @@ const DetailProduct = (props) => {
         <div className="d-inline-flex align-items-baseline ">
           <h5 className="text-info mt-4 mr-2">Category:</h5>
           <Link href={`/?category=${product.category}#products`}>
-            <a className="btn btn-outline-info">{nameCategory}</a>
+            <a className="btn btn-outline-info text-capitalize">
+              {nameCategory}
+            </a>
           </Link>
         </div>
-        <h5 className="text-info mt-4">Description:</h5>
         <div className="mb-5 _callout rounded">
-          <h6 className="my-2 text-capitalize">{product.description}</h6>
+          <h5 className="my-2 text-capitalize">{product.description}</h5>
           <div className="my-2 text-muted ">{product.content}</div>
         </div>
         {product.inStock <= 0 ? (

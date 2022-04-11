@@ -24,6 +24,16 @@ const Filter = ({ state }) => {
     filterSearch({ router, sort: e.target.value });
   };
 
+  const AZsort = (a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  };
+
   useEffect(() => {
     filterSearch({
       router,
@@ -32,51 +42,51 @@ const Filter = ({ state }) => {
   }, [debouncedSearchTerm]);
 
   return (
-    <div className="input-group">
-      <div className="input-group-prepend col-md-2 px-0 mt-2">
-        <select
-          className="custom-select text-capitalize btn-"
-          value={category}
-          onChange={handleCategory}
-        >
-          <option value="all">All Products</option>
-
-          {categories.map((item) => (
-            <option key={item._id} value={item._id}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
+    <div className="input-group border border-info rounded-pill">
       <form
         autoComplete="off"
-        className="mt-2 col-md-8 px-0 _search-form"
+        className="d-flex  _search-form"
         onSubmit={(e) => e.preventDefault()}
       >
+        <div className="input-group-prepend col-md-4 px-0 mt-2 mb-2">
+          <select
+            className="custom-select text-capitalize"
+            value={sort}
+            onChange={handleSort}
+          >
+            <option value="-createdAt">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="-sold">Best sales</option>
+            <option value="price">Lowest Price</option>
+            <option value="-price">Highest Price</option>
+          </select>
+        </div>
+
+        <div className="input-group-prepend col-md-4 px-0 mt-2 mb-2">
+          <select
+            className="custom-select text-capitalize"
+            value={category}
+            onChange={handleCategory}
+          >
+            <option value="all">All Category</option>
+
+            {categories.sort(AZsort).map((item) => (
+              <option key={item._id} value={item._id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <input
-          placeholder="Search"
+          placeholder="Search..."
           type="text"
-          className="form-control"
+          className="form-control-plaintext col-md-8 mt-2 mb-2"
           list="title_product"
           value={search.toLowerCase()}
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
-
-      <div className="input-group-prepend col-md-2 px-0 mt-2">
-        <select
-          className="custom-select text-capitalize"
-          value={sort}
-          onChange={handleSort}
-        >
-          <option value="-createdAt">Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="-sold">Best sales</option>
-          <option value="-price">Price: Hight-Low</option>
-          <option value="price">Price: Low-Hight</option>
-        </select>
-      </div>
     </div>
   );
 };

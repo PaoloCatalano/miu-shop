@@ -92,6 +92,10 @@ a {
   box-sizing: border-box;
 }
 
+*:focus-visible {
+  outline: none !important;
+}
+
 img {
   object-fit: cover;
   object-position: 0 30%;
@@ -250,15 +254,28 @@ option,
   box-shadow: 0 0 0 0.2rem #17a3b87a;
 }
 .input-group {
-  justify-content: space-around;
+  justify-content: start;
+  gap: 0.05rem;
+  padding-left: 10%;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+}
+._search-form {
+  gap: 0.3rem;
 }
 @media screen and (min-width: 768px) {
   ._search-form {
     -ms-flex: 0 0 65%;
     flex: 0 0 65%;
     max-width: 65%;
+    gap: 1rem;
   }
 }
+
+.input-group:hover {
+  box-shadow: var(--shadow-2);
+}
+
 /* CARD */
 
 ._custom-card {
@@ -291,6 +308,20 @@ option,
 
 ._gray-text {
   color: var(--gray-90);
+}
+
+._custom-card ._nameCategory-title {
+  background-color: var(--main-color-50);
+  color: white;
+}
+._custom-card:nth-child(4n + 3) ._nameCategory-title {
+  background: var(--yellow-50);
+}
+._custom-card:nth-child(4n + 2) ._nameCategory-title {
+  background: var(--indigo-50);
+}
+._custom-card:nth-child(4n) ._nameCategory-title {
+  background: var(--green-30);
 }
 /* PRODUCT */
 
@@ -522,4 +553,23 @@ footer a:hover {
   grid-template-columns: 100%;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
+}
+.polygon {
+  z-index: 1;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  float: left;
+  width: 50px;
+  height: 50px;
+  shape-outside: polygon(50% 0%, 0 50%, 100% 50%);
+  clip-path: polygon(50% 0%, 0 50%, 100% 50%);
+  background: var(--red-transparent);
+  color: white;
+  transform: rotate(45deg);
+  text-align: center;
+}
+
+.polygon p {
+  margin-top: 5px;
 }
