@@ -14,7 +14,7 @@ export default function LandingLayout({ children }) {
           objectPosition="left top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
       <aside className="_bgm">
@@ -26,7 +26,7 @@ export default function LandingLayout({ children }) {
           objectPosition="left top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
       <aside className="_bgsm">
@@ -38,7 +38,7 @@ export default function LandingLayout({ children }) {
           objectPosition="left top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
       {children}
@@ -51,7 +51,7 @@ export default function LandingLayout({ children }) {
           objectPosition="right top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
       <aside className="_bgm">
@@ -63,7 +63,7 @@ export default function LandingLayout({ children }) {
           objectPosition="right top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
       <aside className="_bgsm">
@@ -75,7 +75,7 @@ export default function LandingLayout({ children }) {
           objectPosition="right top"
           quality={100}
           placeholder="blur"
-          blurDataURL={rgbDataURL()}
+          blurDataURL={rgbDataURL(23, 162, 184)}
         />
       </aside>
     </>

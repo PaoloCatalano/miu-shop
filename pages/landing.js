@@ -26,7 +26,7 @@ export default function landing() {
               width={500}
               height={500}
               placeholder="blur"
-              blurDataURL={rgbDataURL()}
+              blurDataURL={rgbDataURL(23, 162, 184)}
               quality={100}
               priority
             />

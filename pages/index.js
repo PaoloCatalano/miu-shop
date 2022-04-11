@@ -90,6 +90,7 @@ const Home = (props) => {
           height={382.5}
           blurDataURL={rgbDataURL()}
           quality={100}
+          priority
         />
       </div>
       <div className="_division mb-5" id="products"></div>
