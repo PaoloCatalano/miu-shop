@@ -115,7 +115,8 @@ const DetailProduct = (props) => {
         <h2 className="text-uppercase text-center">{product.title}</h2>
         <div className="_division mb-5"></div>
         <h5 className="text-info">
-          Price: <span className="_info-bold">€ {product.price}</span>
+          Price: <span className="_info-bold">€ {product.price}</span>{" "}
+          {product.onSale && <i className="text-danger"> On Sale!</i>}
         </h5>
         <div className="row mx-0 d-flex justify-content-between">
           {prodSWR ? (
