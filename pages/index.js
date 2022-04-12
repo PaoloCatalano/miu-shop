@@ -15,10 +15,9 @@ const Home = (props) => {
   const [products, setProducts] = useState(props.products);
   const [isCheck, setIsCheck] = useState(false);
   const [isAll, setIsAll] = useState(false);
-  const [page, setPage] = useState(1);
   const router = useRouter();
 
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, page, setPage } = useContext(DataContext);
   const { auth } = state;
 
   useEffect(() => {

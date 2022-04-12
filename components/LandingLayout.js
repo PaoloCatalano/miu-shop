@@ -7,7 +7,7 @@ export default function LandingLayout({ children }) {
     <>
       <aside className="_bglg">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bglg.jpeg"
           layout="fill"
           objectFit="contain"
@@ -19,7 +19,7 @@ export default function LandingLayout({ children }) {
       </aside>
       <aside className="_bgm">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bgm.jpeg"
           layout="fill"
           objectFit="contain"
@@ -31,7 +31,7 @@ export default function LandingLayout({ children }) {
       </aside>
       <aside className="_bgsm">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bgsm.jpeg"
           layout="fill"
           objectFit="contain"
@@ -44,7 +44,7 @@ export default function LandingLayout({ children }) {
       {children}
       <aside className="_bglg">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bglg.jpeg"
           layout="fill"
           objectFit="contain"
@@ -56,7 +56,7 @@ export default function LandingLayout({ children }) {
       </aside>
       <aside className="_bgm">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bgm.jpeg"
           layout="fill"
           objectFit="contain"
@@ -68,7 +68,7 @@ export default function LandingLayout({ children }) {
       </aside>
       <aside className="_bgsm">
         <Image
-          alt="backgroud"
+          alt="background blue"
           src="/bgsm.jpeg"
           layout="fill"
           objectFit="contain"

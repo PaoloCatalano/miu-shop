@@ -9,7 +9,6 @@ import { rgbDataURL } from "../utils/blurData";
 import { imageUpload } from "../utils/imageUpload";
 import { FiCamera } from "react-icons/fi";
 import { FaTimes, FaCheck } from "react-icons/fa";
-// import { useUser } from "../utils/swr";
 
 const Profile = () => {
   const initialSate = {
@@ -26,9 +25,6 @@ const Profile = () => {
 
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify, orders } = state;
-
-  //SWR
-  // const { userSWR, isLoading, isError } = useUser(auth.token);
 
   useEffect(() => {
     if (auth.user)
@@ -192,29 +188,6 @@ const Profile = () => {
           </center>
         </div>
       )}
-      {/* // using SWR */}
-      {/* {auth.user.isVerified === false ? (
-        <div className="my-3 w-100vw alert alert-danger" role="alert">
-          <center>
-            <h4>Please Verify your email!</h4>
-          </center>
-        </div>
-      ) : userSWR && userSWR.user && !userSWR.user.isVerified ? (
-        <div className="my-3 w-100vw alert alert-danger" role="alert">
-          <center>
-            <h4>Please Verify your email!</h4>
-          </center>
-        </div>
-      ) : (
-        (isLoading || isError) &&
-        !auth.user.isVerified && (
-          <div className="my-3 w-100vw alert alert-danger" role="alert">
-            <center>
-              <h4>Please Verify your email!</h4>
-            </center>
-          </div>
-        )
-      )} */}
       <section className="row text-secondary my-3">
         <div className="col-md-4">
           <h3 className="text-center text-uppercase">
@@ -351,7 +324,7 @@ const Profile = () => {
           <div className="my-3 table-responsive">
             <table
               className="table-bordered table-hover w-100 text-uppercase"
-              style={{ minWidth: "600px", cursor: "pointer" }}
+              style={{ minWidth: "600px" }}
             >
               <thead className="bg-light font-weight-bold">
                 <tr>
@@ -367,16 +340,22 @@ const Profile = () => {
               <tbody>
                 {orders.map((order) => (
                   <tr key={order._id}>
-                    <td className="p-2">
-                      <Link href={`/order/${order._id}`}>
+                    <Link href={`/order/${order._id}`}>
+                      <td className="p-2" style={{ cursor: "pointer" }}>
                         <a>{order._id.slice(0, 9)}...</a>
-                      </Link>
-                    </td>
+                      </td>
+                    </Link>
                     {auth.user.root && (
                       <td className="p-2">
                         {order?.user?._id ? (
                           <Link href={`/edit_user/${order.user._id}`}>
-                            <a className="text-lowercase">{order.user.email}</a>
+                            <a
+                              className={`text-lowercase ${
+                                order.user.isVerified ? "" : "text-danger"
+                              }`}
+                            >
+                              {order.user.email}
+                            </a>
                           </Link>
                         ) : (
                           <div className="text-danger">USER DELETED</div>

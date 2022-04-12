@@ -50,7 +50,7 @@ const Cart = () => {
   }, [cart]);
 
   useEffect(() => {
-    const cartLocal = JSON.parse(localStorage.getItem("__next__cart01__devat"));
+    const cartLocal = JSON.parse(localStorage.getItem("__next__cart"));
     if (cartLocal && cartLocal.length > 0) {
       let newArr = [];
 

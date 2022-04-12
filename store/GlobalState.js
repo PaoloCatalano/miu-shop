@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import reducers from "./Reducers";
 import { getData } from "../utils/fetchData";
 
@@ -14,6 +14,7 @@ export const DataProvider = ({ children }) => {
     users: [],
     categories: [],
   };
+  const [page, setPage] = useState(1);
 
   const [state, dispatch] = useReducer(reducers, initialState);
   const { cart, auth } = state;
@@ -45,16 +46,13 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const __next__cart01__devat = JSON.parse(
-      localStorage.getItem("__next__cart01__devat")
-    );
+    const __next__cart = JSON.parse(localStorage.getItem("__next__cart"));
 
-    if (__next__cart01__devat)
-      dispatch({ type: "ADD_CART", payload: __next__cart01__devat });
+    if (__next__cart) dispatch({ type: "ADD_CART", payload: __next__cart });
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("__next__cart01__devat", JSON.stringify(cart));
+    localStorage.setItem("__next__cart", JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
@@ -81,7 +79,7 @@ export const DataProvider = ({ children }) => {
   }, [auth.token]);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ state, dispatch, page, setPage }}>
       {children}
     </DataContext.Provider>
   );

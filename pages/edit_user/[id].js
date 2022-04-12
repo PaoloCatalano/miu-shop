@@ -62,7 +62,6 @@ const EditUser = () => {
   return (
     <div className="edit_user my-3">
       <NextSeo title={`${process.env.WEBSITE_NAME} | Edit User`} />
-      <GoBack />
 
       <div className="col-md-4 mx-auto my-4">
         <h2 className="text-uppercase text-secondary">Edit User</h2>
@@ -94,6 +93,19 @@ const EditUser = () => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="verified" className="d-block">
+            Verified
+          </label>
+          <input
+            type="text"
+            id="verified"
+            defaultValue={editUser.isVerified}
+            disabled
+            className={editUser.isVerified ? "text-success" : "text-danger"}
+          />
+        </div>
+
+        <div className="form-group">
           <input
             type="checkbox"
             id="isAdmin"
@@ -114,6 +126,7 @@ const EditUser = () => {
           Update
         </button>
       </div>
+      <GoBack />
     </div>
   );
 };
