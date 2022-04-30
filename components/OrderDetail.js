@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PaypalBtn from "./paypalBtn";
+// import PaypalBtn from "./paypalBtn";
 import { patchData } from "../utils/fetchData";
 import { updateItem } from "../store/Actions";
 
@@ -136,7 +136,27 @@ const OrderDetail = ({ orderDetail, state, dispatch }) => {
           {!order.paid && auth.user.role !== "admin" && (
             <div className="p-4">
               <h2 className="mb-4 text-uppercase">Total: ${order.total}</h2>
-              <PaypalBtn order={order} />
+              {/* <PaypalBtn order={order} /> */}
+              <p>To Finalize your purchase:</p>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn btn-warning"
+                href={`mailto:${process.env.ADMIN_EMAIL}?subject=Shop bag of ${
+                  auth.user.name
+                } &body=Hello,%0D%0A%0D%0AI would like to buy the following items:%0D%0A%0D%0A ${order.cart
+                  .map(
+                    (item) =>
+                      `x${item.quantity} - ${item.title.toUpperCase()} - ${
+                        item.price
+                      }€ - ID:${item._id}%0D%0A%0D%0A`
+                  )
+                  .join("")} . %0D%0A%0D%0AThanks! %0D%0A%0D%0A Order ID: ${
+                  order._id
+                }`}
+              >
+                Contact us per email
+              </a>
             </div>
           )}
         </div>

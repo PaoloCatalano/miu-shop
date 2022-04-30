@@ -2,77 +2,77 @@
 
   <url>
     <loc>http://localhost:3000cart</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000categories</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000contact</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000create</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000edit_user</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000forgot-password</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000landing</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000order</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000product</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000profile</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000register</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000reset-password</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000sales</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://localhost:3000signin</loc>
-    <lastmod>2022-04-12T14:41:36.878Z</lastmod>    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-30T08:45:45.117Z</lastmod>    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>
